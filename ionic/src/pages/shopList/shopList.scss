@@ -1,0 +1,79 @@
+page-shopList {
+  .deleteItem {
+    //background-color: #f44336;
+    height: 48dppx;
+  }
+
+  .delete{
+    color: #ffebee;
+    background-color: #f44336;
+    font-size: medium;
+    height: 36dppx;
+    border-radius: 2dppx;
+  }
+
+  .cancel{
+    color: #f44336;
+    background-color: #ffebee;
+    font-size: medium;
+    height: 36dppx;
+    border-radius: 2dppx;
+  }
+  .fab-footer{
+    position: relative;
+  }
+
+  .check {
+    font-size: 40px;
+    color: #27ae60;
+  }
+
+  .help {
+    font-size: 40px;
+    color: #e74c3c;
+  }
+
+  .totalPrice{
+    font-size: large;
+  }
+
+  
+  
+}
+
+.recipeName {
+  color: gray;
+  font-size: 12px;
+}
+
+.price_item {
+  text-align: right;
+}
+
+.article {
+  margin-top: -5px;
+  margin-bottom: -5px;
+}
+
+.category_icon{
+  display: inline-block;
+  position: absolute;
+  margin-right: 50px;
+  z-index: 3;
+}
+
+.category_title {
+  margin-left: 40px;
+  margin-top: 7px; 
+}
+
+ul {
+  list-style:none;
+  margin-left:0;
+  padding-left:0;
+}
+li {
+  margin-bottom:15px;/* à adapter */
+  color: black;
+  font-size: 20px;
+}

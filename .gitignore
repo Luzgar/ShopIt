@@ -1,0 +1,71 @@
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+*.jar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+.idea/
+
+# Mac files
+.DS_Store
+
+**/target
+*.exe
+
+# IntelliJ files
+*.iml
+
+client_test/
+
+# Specifies intentionally untracked files to ignore when using Git
+# http://git-scm.com/docs/gitignore
+
+*~
+*.sw[mnpcod]
+*.log
+*.tmp
+*.tmp.*
+log.txt
+*.sublime-project
+*.sublime-workspace
+ionic/.vscode/
+ionic/npm-debug.log*
+
+ionic/.idea/
+ionic/.sass-cache/
+ionic/.tmp/
+ionic/.versions/
+ionic/coverage/
+ionic/dist/
+ionic/node_modules/
+ionic/tmp/
+ionic/temp/
+ionic/hooks/
+ionic/platforms/
+ionic/plugins/
+ionic/plugins/android.json
+ionic/plugins/ios.json
+ionic/www/
+ionic/$RECYCLE.BIN/
+
+ionic/Thumbs.db
+ionic/UserInterfaceState.xcuserstate
+ionic/typings/cordova-typings.d.ts
+ionic/test-config/Chrome_58.0.3029_(Windows_10_0.0.0)/karma-test-results.xml

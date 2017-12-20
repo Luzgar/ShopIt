@@ -1,0 +1,128 @@
+<ion-header>
+  <ion-navbar color="{{color}}">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title *ngIf="nameShopList">{{nameShopList}}</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="inviteFriends()">
+        <ion-icon name="person-add"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+  <ion-input
+    placeholder="Start typing an article , then hit Enter key"
+    [(ngModel)]="myInput"
+    [ngModelOptions]="{standalone: true}"
+    (keyup.enter)="addItem(myInput)">
+  </ion-input>
+
+</ion-header>
+
+<ion-content padding>
+  <div>
+    <ion-list>
+      <div *ngFor="let key of dividedList | keys">
+        
+        <ion-item-divider class="item_divider" color="light">
+          <img 
+            [attr.src]="'assets/img/categories/'+key.key+'.png'"
+            height="30px"
+            width="30px"
+            class="category_icon"/><div class="category_title">{{key.key}}</div>
+          </ion-item-divider>
+        <div *ngFor="let item of key.value">
+
+
+          <blockquote style="margin: 20px 0; padding-left: 1.5rem;" [style.border-left]="blockquoteColor(item)">
+            <ion-item-sliding id="itemInfos" >
+              <ion-item class="article">
+                <ion-row>
+                  <ion-col>
+                      {{item.name_item}} 
+                  </ion-col>
+                  <ion-col  class="price_item" *ngIf="item.price >= 0">
+                      {{item.price*item.quantity}}€
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col class="recipeName" style="text-align:left">
+                      {{item.recipe_container}}
+                  </ion-col>
+                  <ion-col>
+                    <div *ngIf="!item.taken && !item.notFound" end >
+                    <ion-buttons *ngIf="item.quantity >= 1" id="quantityArea" end>
+                      <button ion-remove (click)="removeQuantity(item, key.key)">
+                        <ion-icon name="remove"></ion-icon>
+                      </button>
+                      {{item.quantity}}
+                      <button ion-add (click)="addQuantity(item)">
+                        <ion-icon name="add"></ion-icon>
+                      </button>
+                    </ion-buttons>
+                    <ion-buttons class="deleteItem" *ngIf="item.quantity<=0" id="deleteItem" end>
+                      <button class="delete" ion-remove (click)="deleteItem(item, key.key)">
+                        Supprimer
+                      </button>
+                    <button class="cancel" (click)="cancelDeletion(item, key.key)">Annuler</button>
+                    </ion-buttons>
+
+
+                </div>
+                  </ion-col>
+
+
+                </ion-row>
+                <div *ngIf="item.taken" item-right>
+                  <ion-icon class="check" *ngIf="item.taken" name="checkmark" end></ion-icon>
+                </div>
+                <div *ngIf="!item.taken && item.notFound" item-right>
+                  <ion-icon class="help" *ngIf="!item.taken && item.notFound" name="warning" end></ion-icon>
+                </div>
+              </ion-item>
+              <ion-item-options *ngIf="listId > 0" side="left">
+                <button ion-button color="light" (click)="reserve($event, item)">
+                  <ion-icon name="flag"></ion-icon>
+                  Reserver
+                </button>
+              </ion-item-options>
+              <ion-item-options side="right">
+                <button ion-button color="check" (click)="taken($event, item)">
+                  <ion-icon name="checkmark"></ion-icon>
+                  Trouvé
+                </button>
+                <button *ngIf="listId > 0" ion-button color="help" (click)="needHelp($event, item)">
+                  <ion-icon name="warning"></ion-icon>
+                  Aide !
+                </button>
+              </ion-item-options>
+            </ion-item-sliding>
+          </blockquote>
+        </div>
+      </div>
+    </ion-list>
+  </div>
+  <div></div>
+
+  <ion-list>
+    <ion-row>
+      <button ion-button color="light_background"  (click)="getTotalPrice()">Calculer Total</button>
+      <ion-label class="totalPrice" *ngIf="totalPrice>0">{{totalPrice}}€</ion-label>
+    </ion-row>
+
+  </ion-list>
+</ion-content>
+<ion-footer *ngIf="listId >= 0">
+  <ion-fab bottom right color="secondary_dark">
+    <button ion-fab color="secondary_dark">Répartir</button>
+    <ion-fab-list side="top">
+      <!--<button ion-fab>Type</button>-->
+    </ion-fab-list>
+    <ion-fab-list side="left">
+      <button ion-fab (click)="getRepartitionSummary()">Récap</button>
+      <button ion-fab (click)="dividebyCategory(listId)">Type</button>
+      <button ion-fab (click)="dividebyPrice(listId)">Prix</button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-footer>

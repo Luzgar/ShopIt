@@ -1,0 +1,55 @@
+<ion-header no-border>
+  <ion-navbar color="header_log_auth">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="registry_page" scroll="false">
+  <img 
+    src="assets/icon/curriculum.svg" 
+    alt="un triangle aux trois côtés égaux"
+    height="150px"
+    width="150px" 
+    style="display:block; margin:0 auto; margin-bottom:-10%;"/>
+  <div class="registry_content">
+    <p class="registry_title" style="color:azure">Inscrivez-vous</p>
+    <ion-list no-lines>
+
+      <form [formGroup]="slideOneForm">
+
+        <ion-item>
+          <ion-label floating>Login</ion-label>
+          <ion-input formControlName="login" type="text" [class.invalid]="!slideOneForm.controls.login.valid  && submitAttempt"></ion-input>
+        </ion-item>
+        <!--<ion-item *ngIf="!slideOneForm.controls.login.valid  && submitAttempt">
+          <p style="color: #ea6153;">Min 4 car, Max 10 car</p>
+        </ion-item>-->
+        <br>
+        <ion-item>
+          <ion-label floating>Pseudo</ion-label>
+          <ion-input formControlName="pseudo" type="text" [class.invalid]="!slideOneForm.controls.pseudo.valid  &&  submitAttempt"></ion-input>
+        </ion-item>
+
+        <!--<ion-item *ngIf="!slideOneForm.controls.pseudo.valid  &&  submitAttempt">
+          <p style="color: #ea6153;">Min 4 car, Max 10 car</p>
+        </ion-item>-->
+        <br>
+        <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input formControlName="password" type="password" [class.invalid]="!slideOneForm.controls.password.valid  &&  submitAttempt"></ion-input>
+        </ion-item>
+
+        <!--<ion-item *ngIf="!slideOneForm.controls.password.valid  &&  submitAttempt">
+          <p style="color: #ea6153;">Min 4 car</p>
+        </ion-item>-->
+
+      </form>
+
+    </ion-list>
+    <p *ngIf="submitAttempt" style="color:azure; text-align:center">Please fill out all details accurately.</p>
+    <button ion-button full color="log_auth_button" (click)="save()">Create Account!</button>
+  </div>
+</ion-content>

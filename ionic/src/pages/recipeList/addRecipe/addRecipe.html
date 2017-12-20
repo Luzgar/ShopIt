@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-navbar color="dark-primary-color">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Création Recette</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+<ion-content>
+  <img src="assets/img/AddRecipe.png"/>
+
+  <ion-list>
+    <ion-label><strong>Informations</strong></ion-label>
+    <ion-item class="input-field">
+      <ion-label color="primary" floating>Titre</ion-label>
+      <ion-input type="text" [(ngModel)]="titreInput"></ion-input>
+    </ion-item>
+    <ion-item class="input-field">
+      <ion-label color="primary"  floating>Description</ion-label>
+      <ion-input type="text" [(ngModel)]="descriptionInput"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary"  floating>Nombre de personnes</ion-label>
+      <ion-input type="number" [(ngModel)]="nbPersonneInput"></ion-input>
+    </ion-item>
+  </ion-list>
+
+
+  <ion-list>
+    <ion-label><strong>Ingrédients</strong></ion-label>
+    <ion-list>
+      <ion-item class="input-field" *ngFor="let ingredient of listIngredients">
+        {{ingredient.name_item}}
+        <button ion-button>
+          <ion-icon name="remove" (click)="removeIngredient()" end></ion-icon>
+        </button>
+      </ion-item>
+
+
+    </ion-list>
+    <button ion-button color="primary_light"  center >
+      <ion-item>
+        <ion-input placeholder="ajouter un ingredient" [(ngModel)]="ingredient"></ion-input>
+        <ion-select required [(ngModel)]="categoryIngredientInput">
+          <ion-option>Boissons</ion-option>
+          <ion-option>Fruits et légumes</ion-option>
+          <ion-option>Céréales et féculents</ion-option>
+          <ion-option>Viande, poisson, œufs</ion-option>
+          <ion-option>Corps gras</ion-option>
+          <ion-option>Sucre</ion-option>
+        </ion-select>
+      </ion-item>
+
+    </button>
+
+    <button ion-button color="primary_light">
+      <ion-icon name="add" (click)="addIngredient()"></ion-icon>
+    </button>
+
+  </ion-list>
+
+
+  <button ion-button color="secondary_dark" class="centered" (click)="sendRecipe()">Suggérer</button>
+
+
+</ion-content>

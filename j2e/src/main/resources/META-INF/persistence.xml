@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+    <persistence-unit name="shopit_persistence_unit" transaction-type="JTA">
+
+        <jta-data-source>ShopITDataSource</jta-data-source>
+
+        <class>shopit.entities.User</class>
+        <class>shopit.entities.ShopList</class>
+        <class>shopit.entities.ShopListElement</class>
+        <class>shopit.entities.Recipe</class>
+        <class>shopit.entities.Product</class>
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+        <properties>
+            <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)"/>
+            <property name="openjpa.RuntimeUnenhancedClasses" value="unsupported" />
+        </properties>
+
+    </persistence-unit>
+
+</persistence>

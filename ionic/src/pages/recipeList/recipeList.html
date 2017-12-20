@@ -1,0 +1,32 @@
+
+<ion-header>
+  <ion-navbar color="dark-primary-color">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Recettes</ion-title>
+    <ion-buttons end>
+      <button large ion-button (click)="searchRecipe()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+
+  <ion-list>
+    <div ion-item *ngFor="let recette of listeRecettes">
+      <ion-card (click)="recetteClick(recette.listId)">
+        <img src="assets/img/tartiflette.jpeg"/>
+        <ion-card-content text-center="">{{recette.title}}</ion-card-content>
+      </ion-card>
+    </div>
+  </ion-list>
+
+  <ion-fab bottom right>
+    <button ion-fab color="add-recipe" (click)="suggestRecipe()" >Créer</button>
+  </ion-fab>
+</ion-content>
+

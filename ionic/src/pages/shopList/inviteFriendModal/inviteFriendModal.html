@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-navbar color="{{color}}">
+    <ion-title>Inviter une personne</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content id="icon-invite" >
+  <ion-list>
+    <ion-grid>
+      <ion-item class="item-borderless" *ngFor="let collab of collabInfos">
+        <blockquote style="margin: 20px 0; padding-left: 1.5rem;" [style.border-left]="blockquoteColor(collab)">
+          <ion-row>
+            <img  width="50" height="50" src="assets/img/MoiMoi.png"/>
+            <div item-left padding-left="5em" *ngIf="ownerPseudo == collab.pseudo">
+              {{collab.pseudo}} <strong>(organisateur)</strong>
+            </div>
+            <div item-left padding-left="5em" *ngIf="ownerPseudo != collab.pseudo">
+              {{collab.pseudo}}
+            </div>
+            <ion-col >
+
+            </ion-col>
+
+          </ion-row>
+        </blockquote>
+
+        <ion-row>
+          <div *ngIf="ownerPseudo != collab.pseudo">
+            <button ion-button (click)="deleteUser(collab)" color="delete" small >SUPPRIMER</button>
+          </div>
+          <ion-col >
+
+            <div class="descriptionMedal" *ngIf="collab.toShow">
+              <div class="descriptionMedalText">{{collab.description}}</div>
+              <img (click)="setDescription(collab)" width="30" height="30" src={{collab.medalImage}}/>
+            </div>
+            <div class="iconMedal" *ngIf="!collab.toShow">
+              <img (click)="setDescription(collab)" width="30" height="30" src={{collab.medalImage}}/>
+            </div>
+
+
+          </ion-col>
+        </ion-row>
+
+
+      </ion-item>
+    </ion-grid>
+  </ion-list>
+  <ion-item>
+    <ion-label color="primary">Ajouter :</ion-label>
+    <ion-input placeholder="Pseudo" [(ngModel)]="pseudo"></ion-input>
+  </ion-item>
+  <div class="add_button">
+    <button ion-button (click)="ajouter()" color="secondary_dark">Ajouter</button>
+  </div>
+
+</ion-content>
+
+<ion-footer>
+
+</ion-footer>

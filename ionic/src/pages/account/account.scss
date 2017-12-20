@@ -1,0 +1,27 @@
+.inlay{
+  position:absolute;
+  top:5px;
+  right:5px;
+  background-color: transparent;
+  display:block;
+  margin: auto;
+}
+
+.centered{
+  margin:auto;
+  display: block;
+}
+
+.home-background {
+  background: url(../../assets/img/fond_profil_2.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+.image-back {
+  width: 100%;
+}
+
+.save_button{
+  margin-top: 5%;
+  text-align: center;
+}

@@ -1,0 +1,46 @@
+<ion-header color="dark-primary-color">
+  <ion-navbar  color="dark-primary-color">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Liste courantes</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="addListAlert()">
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <div *ngFor="let liste of listes">
+      <ion-card class="ion-card"  >
+        <ion-item-sliding>
+
+
+          <ion-card-header ion-item (click)="listeClick(liste)" detail-push><ion-icon *ngIf="liste.listId >= 0" name="contacts" class="list_icon"></ion-icon><strong>{{liste.title}}</strong></ion-card-header>
+
+
+          <ion-item-options side="left">
+            <button ion-button color="light" (click)="archiveShopList(liste)">
+              <ion-icon name="archive"></ion-icon>
+              Archiver
+            </button>
+          </ion-item-options>
+          <ion-item-options side="right">
+            <button ion-button color="alizarin" (click)="deleteCurrentList(liste)">
+              <ion-icon name="trash"></ion-icon>
+              Supprimer
+            </button>
+          </ion-item-options>
+
+
+        </ion-item-sliding>
+
+      </ion-card>
+    </div>
+  </ion-list>
+
+</ion-content>

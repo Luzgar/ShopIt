@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar color="dark-primary-color">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Photo Ticket de Caisse</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <p align="justify">Aidez-nous à determiner les prix en prenant en photo votre ticket de caisse. Pour que ce soit le plus efficient possible, verifiez à ce que le haut de la photo commence directement par le premier article et que l'on distingue bien les bords du ticket (comme sur l'exemple ci-dessous)</p>
+
+      <img src="assets/img/exemple_ticket.jpg"/>
+      <ion-row>
+        <ion-col width-50 style="text-align: right">
+          <button ion-button (click)="takePicture()"><ion-icon name="camera"></ion-icon></button>
+        </ion-col>
+        <ion-col width-50 style="text-align: left">
+          <button ion-button (click)="sendPicture()"><ion-icon name="send"></ion-icon></button>
+        </ion-col>
+      </ion-row>
+
+      <img [src]="base64Image" *ngIf="base64Image" />
+    </ion-card-content>
+  </ion-card>
+</ion-content>

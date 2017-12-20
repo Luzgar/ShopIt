@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar  color="dark-primary-color">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Listes archivées</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <div *ngFor="let liste of listes">
+      <ion-card class="ion-card" (click)="listeClick(liste)" >
+        <ion-item-sliding>
+
+          <ion-card-header ion-item detail-push><strong>{{liste.title}}</strong></ion-card-header>
+
+          <ion-item-options side="right">
+            <button ion-button color="alizarin" (click)="deleteArchivedList(liste)">
+              <ion-icon name="trash"></ion-icon>
+              Supprimer</button>
+          </ion-item-options>
+
+
+        </ion-item-sliding>
+
+      </ion-card>
+    </div>
+  </ion-list>
+
+
+</ion-content>

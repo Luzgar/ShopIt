@@ -1,0 +1,33 @@
+
+<ion-header>
+  <ion-navbar color="dark-primary-color">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Rechercher Une Recette</ion-title>
+  </ion-navbar>
+  <ion-searchbar
+    placeholder="Start typing an ingredient , then hit Enter key"
+    [(ngModel)]="inputIngredient"
+    [ngModelOptions]="{standalone: true}"
+    (keyup.enter)="addToParams(inputIngredient)">
+  </ion-searchbar>
+  <ion-label large><strong>Doit contenir: </strong>{{requestedIngredients}}</ion-label>
+  <button ion-button (click)="searchRecipeByIngredient()">Trouver des Recettes</button>
+</ion-header>
+
+
+<ion-content class="card-background-page">
+  <ion-list>
+
+
+    <div ion-item *ngFor="let recette of listRecette">
+      <ion-card (click)="recetteClick(recette.listId)">
+        <img src="assets/img/tartiflette.jpeg"/>
+        <div class="card-title" text-center="">{{recette.title}}</div>
+      </ion-card>
+    </div>
+  </ion-list>
+
+
+</ion-content>

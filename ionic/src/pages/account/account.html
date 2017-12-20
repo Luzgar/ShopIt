@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar color="dark-primary-color">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Mon Profil</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="deconnect()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-row>
+    <img class="image-back" src="assets/img/fond_profil.jpg" />
+    <ion-item class="item-profile inlay" no-lines>
+
+      <div class="item-avatar" >
+        <img class="centered" width="80" height="80" src="assets/icon/profil-circle.png">
+      </div>
+    </ion-item>
+
+  </ion-row>
+
+  <ion-item>
+    <ion-label color="primary">Durée d'une liste (jours)</ion-label>
+    <ion-input type="number" placeholder="30" [(ngModel)]="dureeListe"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary">Choisir mon titre: </ion-label>
+    <ion-select interface="popover" [(ngModel)]="exposedMedal">
+      <ion-option  *ngFor="let medal of medalsUser">{{medal.title}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Activer les articles récurrents</ion-label>
+    <ion-toggle [(ngModel)]="recurrency"></ion-toggle>
+  </ion-item>
+  <div class="save_button">
+    <button ion-button (click)="save()" color="secondary_dark">Sauvegarder</button>
+  </div>
+</ion-content>

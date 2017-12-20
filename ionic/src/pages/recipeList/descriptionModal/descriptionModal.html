@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar color="dark-primary-color">
+    <ion-title padding-left="250rem">{{name}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <img src="assets/img/tartiflette.jpeg"/>
+
+
+  <ion-list padding-left="10rem">
+    <ion-label class="myLabel">Description: </ion-label>
+    <ion-label text-wrap>{{description}}</ion-label>
+  </ion-list>
+
+
+  <ion-item>
+    <ion-label class="myLabel">Nombre de personnes: </ion-label>
+    <ion-input  placeholder="{{initialNumberPerson}}" [(ngModel)]="modifiedNumberPerson"></ion-input>
+
+  </ion-item>
+  <ion-list>
+    <button ion-item  (click)="deleteIngredient(ingredient)" *ngFor="let ingredient of listIngredients">
+      <ion-icon name="close-circle" color="primary_light" item-start=""></ion-icon>
+      <div text-center>{{ingredient.item}}</div>
+
+    </button>
+  </ion-list>
+
+  <button ion-button block (click)="addToList()">Ajouter à une liste</button>
+</ion-content>

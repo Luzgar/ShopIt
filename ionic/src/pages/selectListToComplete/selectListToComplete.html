@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar color="dark-primary-color">
+    <ion-title>Choisir une liste</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+
+
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <button ion-item *ngFor="let liste of listes" (click)="listeClick(liste)" text-center="">
+      {{liste.title}}
+    </button>
+  </ion-list>
+</ion-content>
